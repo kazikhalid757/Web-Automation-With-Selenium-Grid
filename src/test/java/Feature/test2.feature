@@ -2,11 +2,13 @@ Feature: Verify Brikroy.com Website work properly
 
   #T1
   @Release
+  @firefox
   Scenario: Verify Bikroy logo work properly
     Given User Click on Bikroy logo
 
 # T2
   @Release
+  @firefox
   Scenario:Verify that All Ads Option show Properly
   Given Check that All Ads Option show Properly
   When  Click that All Ads Option
@@ -14,6 +16,7 @@ Feature: Verify Brikroy.com Website work properly
 
   # T3
   @Release
+  @firefox
   Scenario: Verify that Chat button show Properly
     Given Check that chat button show Properly
     When  Click that chat button
@@ -22,6 +25,7 @@ Feature: Verify Brikroy.com Website work properly
 
     # T4
   @Release
+  @firefox
   Scenario:Verify that Login button show Properly
     Given Check that login button show Properly
     When  Click that login button
@@ -31,6 +35,7 @@ Feature: Verify Brikroy.com Website work properly
 
     # T5
   @Release
+  @firefox
   Scenario:Verify that POST YOUR AD button show Properly
     Given Check that Post your ad button show Properly
     When  Click that Post your ad button
