@@ -27,6 +27,10 @@ public class testSteps {
 
         Assert.assertTrue(homepage.getSearchIcon().isDisplayed());
         homepage.getSearchIcon().click();
+
+
+
+
     }
 
 

@@ -2,7 +2,6 @@ Feature: Verify Brikroy icon work properly_2
 
 # T6
   @Release
-  @chrome
   Scenario: Verify that Search bar show Properly
     Given Check that search bar show Properly
     When  Click that search bar
@@ -11,7 +10,6 @@ Feature: Verify Brikroy icon work properly_2
 
     # T7
   @Release
-  @chrome
   Scenario: Verify that Search option work Properly
     Given Check that search bar show Properly
     When  Click that search bar
@@ -22,7 +20,6 @@ Feature: Verify Brikroy icon work properly_2
 
     # T8
   @Release
-  @chrome
   Scenario:Verify that Language button show Properly
     Given Check that language button show Properly
     When  Click that language button
@@ -33,7 +30,6 @@ Feature: Verify Brikroy icon work properly_2
 
     # T9
   @Release
-  @chrome
   Scenario:Verify that Location button show Properly
     Given Check that location button show Properly
     When  Click that location button
