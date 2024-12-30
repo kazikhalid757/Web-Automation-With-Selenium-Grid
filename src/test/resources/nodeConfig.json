@@ -1,0 +1,16 @@
+{
+  "capabilities": [
+    {
+      "browserName": "chrome",
+      "maxInstances": 5,
+      "seleniumProtocol": "WebDriver"
+    }
+  ],
+  "maxSession": 5,
+  "port": 5555,
+  "hub": "http://localhost:4444",
+  "register": true
+}
+
+
+

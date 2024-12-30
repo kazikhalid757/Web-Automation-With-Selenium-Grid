@@ -1,0 +1,9 @@
+/target/
+allure-results/
+test-output/
+src/test/resources/selenium-server-4.24.0.jar
+logs/automation.log
+reports/cucumber-reports.html
+/.idea/
+/.settings/
+/reports/

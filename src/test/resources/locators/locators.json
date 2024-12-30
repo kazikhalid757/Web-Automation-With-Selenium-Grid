@@ -1,0 +1,61 @@
+{
+	"loginPage": {
+
+		"login_logo":{
+			"type":"xpath",
+			"value":"//a[@aria-label='Login']"
+		},
+		"email_login":{
+			"type":"xpath",
+			"value":"//span[@class='email-text--FbASN']"
+		},
+		"email_input_field":{
+			"type":"xpath",
+			"value":"//input[@id='input_email']"
+		},
+		"Password_input_field":{
+			"type":"xpath",
+			"value":"//input[@id='input_password']"
+		},
+		"Login_Button":{
+			"type":"xpath",
+			"value":"//button[normalize-space()='Login']"
+		},
+		"Mobile_category":{
+			"type":"xpath",
+			"value":"//p[normalize-space()='Mobiles']"
+		},
+		"verify_mobile":{
+			"type":"xpath",
+			"value":"(//div[normalize-space()='Mobiles'])[1]"
+		},
+		"Electronics_category":{
+			"type":"xpath",
+			"value":"//p[normalize-space()='Electronics']"
+		},
+		"verify_Electronics":{
+			"type":"xpath",
+			"value":"//h1[normalize-space()='Electronics Products for Sale in Bangladesh']"
+		},
+		"Vehicles_category":{
+			"type":"xpath",
+			"value":"//p[normalize-space()='Vehicles']"
+		},
+		"Verify_Vehicles":{
+			"type":"xpath",
+			"value":"//h1[normalize-space()='Mobiles and Accessories for Sale in Bangladesh']"
+		},
+		"Property_category":{
+			"type":"xpath",
+			"value":"//p[normalize-space()='Property']"
+		},
+		"verify_Property":{
+			"type":"xpath",
+			"value":"(//div[normalize-space()='Property'])[1]"
+		}
+
+	}
+
+
+}
+

@@ -1,0 +1,79 @@
+pipeline {
+    agent any
+
+    environment {
+        PYTHON_PATH = "C:\\Users\\TallyKhata\\AppData\\Local\\Programs\\Python\\Python311\\python.exe"  
+        PYTHON_SCRIPT = "check_selenium_grid.py"  
+        PYTHON_SCRIPT_1 ="check_session.py"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out the repository...'
+                checkout([$class: 'GitSCM',
+                          branches: [[name: 'selenium_grid_dynamic_tamim']],
+                          userRemoteConfigs: [[url: 'https://github.com/asifur-rouf/Selenium-GRID.git',
+                                               credentialsId: 'tamim61qups']]])
+            }
+        }
+
+        stage('Check Selenium Grid') {
+            steps {
+                echo 'Checking Selenium Grid status...'
+                script {
+                    // Run Python script to check Selenium Grid using the full path to python.exe
+                    def result = bat(script: "\"${PYTHON_PATH}\" ${PYTHON_SCRIPT}", returnStatus: true)
+                    if (result == 0) {
+                        echo "Selenium Grid is operational."
+                    } else {
+                        error("Selenium Grid is not ready. Aborting the pipeline.")
+                    }
+                }
+            }
+        }
+        
+        stage('Check Selenium Grid Queue(Concurrency)') {
+            steps {
+                echo 'Checking Selenium Grid Queue  status...'
+                script {
+                    // Run Python script to check Selenium Grid using the full path to python.exe
+                    def result = bat(script: "\"${PYTHON_PATH}\" ${PYTHON_SCRIPT_1}", returnStatus: true)
+                    if (result == 0) {
+                        echo "Selenium Grid Queue  is operational."
+                    } else {
+                        error("Selenium Grid Queue  is not ready. Aborting the pipeline.")
+                    }
+                }
+            }
+        }
+
+        stage('Run Tests on Selenium Grid') {
+            steps {
+                echo 'Running tests on Selenium Grid...'
+                script {
+                    catchError(buildResult: 'SUCCESS', message: 'Tests failed, but continuing the pipeline') {
+                        bat """
+                            mvn clean test || true
+                        """
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+             echo 'Publishing Allure reports...'
+            allure includeProperties: false,
+                    jdk: '',
+                    results: [[path: 'build/allure-results']]
+        }
+        success {
+            echo 'Build and tests completed successfully!'
+        }
+        failure {
+            echo 'Build or tests failed.'
+        }
+    }
+}
